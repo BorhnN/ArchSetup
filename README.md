@@ -55,14 +55,14 @@ mkfs.btrfs /dev/sda3
 5. ```
 timeout 5
 default arch
-```
+    ```
 6. `vim entries/arch.conf`
 7. ```
 title ArchLinux
 linux /vmliuz-linux
 initrd /initramfs-linux.img
 options root=PARTUUID=thepartuuid-without-quote
-```
+    ```
 
 8. `mkinitcpio -p linux`
 9. `exit`
