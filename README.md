@@ -52,13 +52,11 @@ mkfs.btrfs /dev/sda3
 2. `bootctl install`
 3. `cd /boot/loader`
 4. `vim loader.conf`
-5. 
 ```
 timeout 5
 default arch
 ```
 6. `vim entries/arch.conf`
-7. 
 ```
 title ArchLinux
 linux /vmliuz-linux
