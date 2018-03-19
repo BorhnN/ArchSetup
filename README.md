@@ -53,7 +53,7 @@ mkfs.btrfs /dev/sda3
 1. `cd /boot/loader`
 1. `vim loader.conf`
     ```
-    timeout 
+    timeout 3
     default arch
     ```
 1. `vim entries/arch.conf`
