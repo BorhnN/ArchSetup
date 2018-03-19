@@ -52,10 +52,10 @@ mkfs.btrfs /dev/sda3
 1. `bootctl install`
 1. `cd /boot/loader`
 1. `vim loader.conf`
-```
-timeout 
-default arch
-```
+    ```
+    timeout 
+    default arch
+    ```
 1. `vim entries/arch.conf`
     ```
     title ArchLinux
