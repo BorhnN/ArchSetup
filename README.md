@@ -67,3 +67,12 @@ mkfs.btrfs /dev/sda3
 1. `mkinitcpio -p linux`
 1. `exit`
 1. `reboot`
+
+## installing rEFInd bootloader
+
+If booted into newly installed system (not `chroot`),  
+as `root`
+
+1. `rm -rf /boot/*`
+2. `pacman -S linux refind-efi`
+3. `refind-install`
