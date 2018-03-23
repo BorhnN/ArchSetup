@@ -45,6 +45,7 @@ mkfs.btrfs /dev/sda3
 2. `mkdir /mnt/boot`
 3. `mount /dev/sda1 /mnt/boot`
 4. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
+1. `genfstab -U /mnt >> /mnt/etc/fstab`
 
 ## Bootloader
 
@@ -63,7 +64,6 @@ mkfs.btrfs /dev/sda3
     initrd /initramfs-linux.img
     options root=PARTUUID=thepartuuid-without-quote
     ```
-1. `genfstab -U /mnt >> /mnt/etc/fstab`
 1. `mkinitcpio -p linux`
 1. `exit`
 1. `reboot`
