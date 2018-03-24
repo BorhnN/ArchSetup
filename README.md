@@ -79,3 +79,14 @@ as `root`
 1. `pacman -S linux refind-efi`
 1. `refind-install`
 
+## Configuration
+
+1. Set time zone:
+
+   `ln -sf /usr/share/zoneinfo/Asia/Dhaka /etc/localtime`
+1. Set hardware clock:
+
+   `hwclock --systohc`
+1. Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen` then:
+
+   `locale-gen`
