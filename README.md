@@ -47,7 +47,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 1. `mkdir /mnt/boot`
 1. `mount /dev/sda1 /mnt/boot`
 1. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
-1. `genfstab -t PARTUUID /mnt >> /mnt/etc/fstab`
+1. `genfstab -t PARTUUID /mnt > /mnt/etc/fstab`
 
 ## Bootloader
 
@@ -66,7 +66,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    title ArchLinux
    linux /vmliuz-linux
    initrd /initramfs-linux.img
-   options root=PARTUUID=thepartuuid-without-quote
+   options root=PARTUUID=thepartuuid-without-quote rw
    ```
 
    `:r ! blkid` for reading it into `vim`.  
@@ -83,13 +83,15 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 1. Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen` then:
 
    `locale-gen`
-   `vim /etc/hosts`
+1. `echo "LANG=en-US.UTF-8" > /etc/locale.conf`
+1. `vim /etc/hosts`
    ```
    127.0.0.1	ButterSlide
    ::1		ButterSlide
    127.0.1.1	ButterSlide.localdomain	ButterSlide
    ```
-1. `echo "ButterSlide" >> /etc/hostname`
+1. `echo "ButterSlide" > /etc/hostname`
+1. `systemctl enable NetworkManager`
 1. `mkinitcpio -p linux` just to be safe.
 1. `passwd` and set root password.
 1. `exit`
