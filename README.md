@@ -83,7 +83,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 1. Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen` then:
 
    `locale-gen`
-1. `echo "LANG=en-US.UTF-8" > /etc/locale.conf`
+1. `echo "LANG=en_US.UTF-8" > /etc/locale.conf`
 1. `vim /etc/hosts`
    ```
    127.0.0.1	ButterSlide
@@ -92,7 +92,6 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    ```
 1. `echo "ButterSlide" > /etc/hostname`
 1. `systemctl enable NetworkManager`
-1. `mkinitcpio -p linux` just to be safe.
 1. `passwd` and set root password.
 1. `exit`
 1. `reboot`
@@ -103,4 +102,5 @@ Once booted into newly installed system (not `chroot`),
 as `root`
 1. `rm -rf /boot/*`
 1. `pacman -S linux refind-efi`
+1. `mkinitcpio -p linux` just to be safe.
 1. `refind-install`
