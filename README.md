@@ -40,6 +40,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    mkfs.vfat -F32 /dev/sda1
    mkfs.btrfs /dev/sda3
    ```
+
 ## Installation
 
 1. `mount /dev/sda3 /mnt`
@@ -47,6 +48,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 1. `mount /dev/sda1 /mnt/boot`
 1. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
 1. `genfstab -t PARTUUID /mnt >> /mnt/etc/fstab`
+
 ## Bootloader
 
 1. `arch-chroot /mnt`
@@ -69,15 +71,6 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 
    `:r ! blkid` for reading it into `vim`.  
    `v` for visual mode `y` to yank and `p` to paste.
-1. `mkinitcpio -p linux`
-1. `exit`
-1. `reboot`
-## installing rEFInd bootloader
-If booted into newly installed system (not `chroot`), 
-as `root`
-1. `rm -rf /boot/*`
-1. `pacman -S linux refind-efi`
-1. `refind-install`
 
 ## Configuration
 
@@ -90,3 +83,22 @@ as `root`
 1. Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen` then:
 
    `locale-gen`
+   `vim /etc/hosts`
+   ```
+   127.0.0.1	ButterSlide
+   ::1		ButterSlide
+   127.0.1.1	ButterSlide.localdomain	ButterSlide
+   ```
+1. `echo "ButterSlide" >> /etc/hostname`
+1. `mkinitcpio -p linux` just to be safe.
+1. `passwd` and set root password.
+1. `exit`
+1. `reboot`
+
+## Installing rEFInd bootloader
+
+Once booted into newly installed system (not `chroot`), 
+as `root`
+1. `rm -rf /boot/*`
+1. `pacman -S linux refind-efi`
+1. `refind-install`
