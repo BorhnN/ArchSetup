@@ -65,6 +65,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    ```
    title ArchLinux
    linux /vmliuz-linux
+   initrd /intel-ucode.img
    initrd /initramfs-linux.img
    options root=PARTUUID=thepartuuid-without-quote rw
    ```
@@ -92,6 +93,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    ```
 1. `echo "ButterSlide" > /etc/hostname`
 1. `systemctl enable NetworkManager`
+1. `systemctl enable fstrim.timer`
 1. `passwd` and set root password.
 1. `exit`
 1. `reboot`
@@ -104,3 +106,42 @@ as `root`
 1. `pacman -S linux refind-efi`
 1. `mkinitcpio -p linux` just to be safe.
 1. `refind-install`
+
+## Moar Configuration
+
+1. `vim /etc/pacman.conf` and add these lines:
+
+   ```
+   [AUR]
+   SigLeve = Never
+   Server = http://repo.archlinux.fr/$arch
+   ```
+1. `useradd -mg users -G wheel, storage, power -s /bin/zsh borhan`
+1. `passwd borhan`
+1. `visudo` and uncomment:
+   ```
+   %wheel ALL=(ALL) ALL
+   ```
+   ##### Installing Nvidia
+1. `sudo pacman -S linux-headers`
+1. `sudo pacman -S nvidia-dkms libglvnd nvidia-utils opencl-nvidia lib32-nvidia-utils lib32-opencl-nvidia nvidia-settings`
+1. `sudo vim /etc/mkinitcpio.conf` add `nvidia nvidia_modeset nvidia_uvm nvidia_drm` to MODULES
+   ```
+   MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+   ```
+1. add those modules to rEFInd bootloader config too.
+1. `mkdir /etc/pacman.d/hooks`
+1. `sudo vim /etc/pacman.d/hooks/nvidia.hook`
+   ```
+   [Trigger]
+   Operation=Install
+   Operation=Upgrade
+   Operation=Remove
+   Type=Package
+   Target=nvidia
+
+   [Action]
+   Depends=mkinitcpio
+   When=PostTransaction
+   Exec=/usr/bin/mkinitcpio -P
+   ```
