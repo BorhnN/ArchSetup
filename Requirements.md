@@ -8,3 +8,10 @@
 - [ ] Easy CLI tool for connecting to Wireless Networks (+Wired)
 - [ ] Quick configurable startup tasks
 - [ ] Network traffic monitoring live in GUI
+- [ ] Sync with my main desktop
+- [ ] Development Environments
+    - [ ] Android Development
+    - [ ] Python Environment
+    - [ ] LaTeX Environment
+    - [ ] Full CUDA support
+    - [ ] Haskell Development
