@@ -23,5 +23,5 @@
     - [ ] Android Development
     - [ ] Python Environment
     - [ ] LaTeX Environment
-    - [ ] Full CUDA support
+    - [ ] Machine Learning with full CUDA support
     - [ ] Haskell Development
