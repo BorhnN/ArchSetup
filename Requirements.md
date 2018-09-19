@@ -1,0 +1,10 @@
+- [ ] Supports all GPUs'
+    - [ ] Support Intel GPU
+    - [ ] Support NVIDIA 10 series
+    - [ ] Support All NVIDIA
+    - [ ] Support Newer AMD GPU's
+- [ ] Auto mount all available HDD's
+- [ ] Auto mount all flash drives
+- [ ] Easy CLI tool for connecting to Wireless Networks (+Wired)
+- [ ] Quick configurable startup tasks
+- [ ] Network traffic monitoring live in GUI
