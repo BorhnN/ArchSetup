@@ -1,11 +1,16 @@
 - [ ] Supports secure boot
 - [ ] Have graphical bootloader (rEFInd)
 - [ ] Support non-EFI systems
+- [ ] Minimum time for login page
+- [ ] If there's no login/activity after startup, computer should sleep/hybernate/shutdown after 3 minutes (for WOL)
 - [ ] Supports all GPU's
     - [ ] Support Intel GPU
     - [ ] Support NVIDIA 10 series
     - [ ] Support All NVIDIA
     - [ ] Support Newer AMD GPU's
+- [ ] Login prompt should show in all console
+- [ ] Fill-in default username at login, only have to type password
+- [ ] Prompt for start xorg at login, but not automatic
 - [ ] Have Xorg
 - [ ] Have Wayland for experiment
 - [ ] Auto mount all available HDD's
