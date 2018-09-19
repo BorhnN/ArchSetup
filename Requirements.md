@@ -1,13 +1,23 @@
-- [ ] Supports all GPUs'
+- [ ] Supports secure boot
+- [ ] Have graphical bootloader (rEFInd)
+- [ ] Support non-EFI systems
+- [ ] Supports all GPU's
     - [ ] Support Intel GPU
     - [ ] Support NVIDIA 10 series
     - [ ] Support All NVIDIA
     - [ ] Support Newer AMD GPU's
+- [ ] Have Xorg
+- [ ] Have Wayland for experiment
 - [ ] Auto mount all available HDD's
 - [ ] Auto mount all flash drives
 - [ ] Easy CLI tool for connecting to Wireless Networks (+Wired)
 - [ ] Quick configurable startup tasks
-- [ ] Network traffic monitoring live in GUI
+- [ ] Monitors in GUI/DE
+    - [ ] Live network traffic
+    - [ ] Primary HDD space
+    - [ ] CPU temperature
+    - [ ] GPU temperature
+    - [ ] Memory stat
 - [ ] Sync with my main desktop
 - [ ] Development Environments
     - [ ] Android Development
