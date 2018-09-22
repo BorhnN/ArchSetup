@@ -17,6 +17,14 @@
 - [ ] Auto mount all flash drives
 - [ ] Easy CLI tool for connecting to Wireless Networks (+Wired)
 - [ ] Quick configurable startup tasks
+- [ ] Packages
+    - [ ] Editors
+        - [ ] vim
+        - [ ] nano
+        - [ ] vscode
+    - [ ] Browsers
+        - [ ] Firefox
+        - [ ] Google Chrome
 - [ ] Monitors in GUI/DE
     - [ ] Live network traffic
     - [ ] Primary HDD space
