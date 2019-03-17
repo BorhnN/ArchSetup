@@ -47,7 +47,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 1. `mount /dev/sda3 /mnt` (main partition)
 1. `mkdir /mnt/boot`
 1. `mount /dev/sda2 /mnt/boot` (efi partition)
-1. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
+1. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap networkmanager ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
 1. `genfstab -t PARTUUID /mnt > /mnt/etc/fstab`
 
 ## Bootloader
