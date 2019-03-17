@@ -30,6 +30,7 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
    ```
 1. `o` to create new GPT
 1. `n` for new partition
+1. `10M` for BIOS/MBR partition. Do not format. (citation needed)
 1. Between `256M` & `1G` for EFI file system `ef00`
 1. Make a `32M` microsoft reserved `0c01` in case you want to install Windows suddenly.
 1. Make Linux root partition
@@ -43,9 +44,9 @@ On Windows use [Rufus](https://rufus.akeo.ie) to create installer USB.
 
 ## Installation
 
-1. `mount /dev/sda3 /mnt`
+1. `mount /dev/sda3 /mnt` (main partition)
 1. `mkdir /mnt/boot`
-1. `mount /dev/sda1 /mnt/boot`
+1. `mount /dev/sda2 /mnt/boot` (efi partition)
 1. `pacstrap /mnt base base-devel arch-install-scripts b43-fwcutter btrfs-progs darkhttpd ddrescue efitools elinks exfat-utils f2fs-tools rsync fsarchiver grml-zsh-config intel-ucode ipw2100-fw ipw2200-fw lsscsi mc nfs-utils nmap ntp pptpclient refind-efi rsync smartmontools usb_modeswitch wget wireless_tools vim wpa_supplicant`
 1. `genfstab -t PARTUUID /mnt > /mnt/etc/fstab`
 
